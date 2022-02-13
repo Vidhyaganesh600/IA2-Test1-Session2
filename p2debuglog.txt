@@ -1,12 +1,12 @@
- gcc -g p2final.c
+ gcc -g p2final.c
  ./a.out
 enter a number
 5
 enter a number
 6
 enter a number
-7
-5!=6!=7  is: scalene
+8
+5!=6!=8  is: scalene
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -41,25 +41,17 @@ enter a number
 33    c=input_side();
 (gdb) n
 enter a number
-7
+8
 34    check_scalene(a,b,c);
-(gdb) s
-check_scalene (a=5, b=6, c=7) at p2final.c:11
-11    if(a!=b && b!=c && c!=a)
 (gdb) n
-13     return 0;
-(gdb) n
-20  }
-(gdb) n
-main () at p2final.c:35
 35    output(a,b,c,isscalene);
 (gdb) s
-output (a=5, b=6, c=7, isscalene=0) at p2final.c:23
+output (a=5, b=6, c=8, isscalene=0) at p2final.c:23
 23    if(a!=b && b!=c && c!=a)
 (gdb) n
 25    printf("%d!=%d!=%d  is: scalene\n",a,b,c);
 (gdb) n
-5!=6!=7  is: scalene
+5!=6!=8  is: scalene
 27  }
 (gdb) n
 main () at p2final.c:36
@@ -68,6 +60,6 @@ main () at p2final.c:36
 37  }(gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 163] will be killed.
+    Inferior 1 [process 95] will be killed.
 
 Quit anyway? (y or n) y
