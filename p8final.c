@@ -15,5 +15,5 @@ Triangle input_triangle()
 {
   Triangle Triangle1;
   printf("enter the members of Triangle1");
-  scanf("%f%f",7Trian)
+  scanf("%f%f",Trian)
 }

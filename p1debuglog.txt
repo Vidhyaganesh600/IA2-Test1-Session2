@@ -1,9 +1,10 @@
  gcc -g p1final.c
  ./a.out
-enter two numbers
+enter the base and height of triangle
 1
 2
-The area of the triangle with base 1.000000 and height 2.000000 is: 1.000000  gdb a.out
+the area of triangle with base 1.000000 and height 2.000000 is 1.000000
+ gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -20,7 +21,7 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x81a: file p1final.c, line 16.
+Breakpoint 1 at 0x822: file p1final.c, line 16.
 (gdb) r
 Starting program: /home/runner/IA2-Test1-Session2-1/a.out 
 warning: Error disabling address space randomization: Operation not permitted
@@ -30,10 +31,11 @@ Breakpoint 1, main () at p1final.c:16
 (gdb) n
 18    input(&base,&height);
 (gdb) s
-input (base=0x7ffc31eed95c, height=0x7ffc31eed960) at p1final.c:4
-4     printf("enter two numbers\n");
+input (base=0x7fff2f1b130c, height=0x7fff2f1b1310)
+    at p1final.c:4
+4     printf("enter the base and height of triangle\n");
 (gdb) n
-enter two numbers
+enter the base and height of triangle
 5     scanf("%f %f",base,height);
 (gdb) n
 1
@@ -43,8 +45,9 @@ enter two numbers
 main () at p1final.c:19
 19    find_area(base,height,&area);
 (gdb) s
-find_area (base=1, height=2, area=0x7ffc31eed964) at p1final.c:9
-9     *area=(base)*(height)/2;
+find_area (base=1, height=2, area=0x7fff2f1b1314)
+    at p1final.c:9
+9     *area=0.5 * base * height;
 (gdb) n
 10  }
 (gdb) n
@@ -52,17 +55,18 @@ main () at p1final.c:20
 20    output(base,height,area);
 (gdb) s
 output (base=1, height=2, area=1) at p1final.c:13
-13    printf("The area of the triangle with base %f and height %f is: %f ",base,height,area);
+13    printf("the area of triangle with base %f and height %f is %f\n",base,height,area);
 (gdb) n
+the area of triangle with base 1.000000 and height 2.000000 is 1.000000
 14  }
 (gdb) n
 main () at p1final.c:21
 21    return 0;
 (gdb) n
-22  }(gdb) q
+22  }
+(gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 46] will be killed.
+    Inferior 1 [process 414] will be killed.
 
 Quit anyway? (y or n) y
- 
