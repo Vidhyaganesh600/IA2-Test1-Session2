@@ -1,12 +1,12 @@
- gcc -g p2final.c
+ gcc -g p2final.c
  ./a.out
-enter a number
-5
-enter a number
-6
-enter a number
+enter the side length
+7
+enter the side length
 8
-5!=6!=8  is: scalene
+enter the side length
+9
+triangle is scalene
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -24,42 +24,87 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x857: file p2final.c, line 31.
+Breakpoint 1 at 0x7f2: file p2final.c, line 34.
 (gdb) r
 Starting program: /home/runner/IA2-Test1-Session2-1/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p2final.c:31
-31    a=input_side();
-(gdb) n
-enter a number
-5
-32    b=input_side();
-(gdb) n
-enter a number
-6
-33    c=input_side();
-(gdb) n
-enter a number
-8
-34    check_scalene(a,b,c);
-(gdb) n
-35    output(a,b,c,isscalene);
+Breakpoint 1, main () at p2final.c:34
+34    a=input_side();
 (gdb) s
-output (a=5, b=6, c=8, isscalene=0) at p2final.c:23
-23    if(a!=b && b!=c && c!=a)
+input_side () at p2final.c:3
+3   {
 (gdb) n
-25    printf("%d!=%d!=%d  is: scalene\n",a,b,c);
+5     printf("enter the side length\n");
 (gdb) n
-5!=6!=8  is: scalene
-27  }
+enter the side length
+6     scanf("%d",&a);
+(gdb) n
+7
+7     return a;
+(gdb) n
+8   }
+(gdb) n
+main () at p2final.c:35
+35    b=input_side();
+(gdb) s
+input_side () at p2final.c:3
+3   {
+(gdb) n
+5     printf("enter the side length\n");
+(gdb) n
+enter the side length
+6     scanf("%d",&a);
+(gdb) n
+8
+7     return a;
+(gdb) n
+8   }
 (gdb) n
 main () at p2final.c:36
-36    return 0;
+36    c=input_side();
+(gdb) s
+input_side () at p2final.c:3
+3   {
 (gdb) n
-37  }(gdb) q
+5     printf("enter the side length\n");
+(gdb) n
+enter the side length
+6     scanf("%d",&a);
+(gdb) n
+9
+7     return a;
+(gdb) n
+8   }
+(gdb) n
+main () at p2final.c:37
+37    isscalene=check_scalene(a,b,c);
+(gdb) s
+check_scalene (a=7, b=8, c=9) at p2final.c:11
+11    if(a!=b && b!=c && a!=c)
+(gdb) n
+13      return 1;
+(gdb) n
+19  }
+(gdb) n
+main () at p2final.c:38
+38    output(a,b,c,isscalene);
+(gdb) s
+output (a=7, b=8, c=9, isscalene=1) at p2final.c:22
+22     if(a!=b && b!=c && a!=c)
+(gdb) n
+24       printf("triangle is scalene\n");
+(gdb) n
+triangle is scalene
+30  }
+(gdb) n
+main () at p2final.c:39
+39    return 0;
+(gdb) n
+40  }
+(gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 95] will be killed.
+    Inferior 1 [process 1297] will be killed.
 
 Quit anyway? (y or n) y
